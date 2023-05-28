@@ -86,7 +86,7 @@ function App() {
   };
 
   return (
-    <div id="root" className="d-flex flex-column align-items-center justify-content-center">
+    <div><div id="root" className="d-flex flex-column align-items-center justify-content-center">
       <div className="page">
         <h1>Traceroute Visualization</h1>
         <form onSubmit={handleRunClick} className="d-flex justify-content-center mt-5" style={{ gap: '0.5rem', width: '100%' }}>
@@ -118,18 +118,21 @@ function App() {
             </button>
           </div>
         </form>
+        {(!(input === '') && (!input.includes('.') || input.split('.').pop().length < 2)) && (
+        <h2>Please Enter a Valid Hostname</h2>
+      )}
       </div>
       <div className="mt-2">
-        <p className="text-secondary" style={{ fontSize: '12px', textAlign: 'center' }}></p>
+        <p className="text-secondary" style={{ textAlign: 'center' }}></p>
       </div>
-      <div className="mt-3">
+      <div className="mt-3" style={{ backgroundColor: 'rgba(255, 255, 255, 0)' }}>
         <h4 className={tracerouteStatus === 'Running Traceroute...' ? "text-warning" : "text-success"}>{tracerouteStatus}</h4>
         {errorMessage ? (
           <div className="alert alert-danger" role="alert">
             {errorMessage}
           </div>
         ) : messageHistory.length > 0 && (
-          <table className="table table-bordered mt-4" style={{ color: "white", borderColor: "white" }}>
+          <table className="table table-bordered mt-4" style={{ color: "black", borderColor: "black" }}>
             <thead>
               <tr>
                 <th scope="col">#</th>
@@ -164,11 +167,13 @@ function App() {
           </table>
         )}
       </div>
+    </div>
+    <div>
       {mapURL && <h4 className='mb-3 mt-5'>Map Visualization</h4>}
       {mapURL && <iframe src={mapURL} title="Map" style={{ width: '100%', height: '50rem' }} />}
       {graphURL && <h4 className='mb-3 mt-5'>Graph Visualization</h4>}
-      {graphURL && <iframe src={graphURL} title="Graph" style={{ width: '80%', height: '500px' }} />}
-    </div>
+      {graphURL && <iframe src={graphURL} title="Graph" style={{ width: '100%', height: '50rem' }} />}
+    </div> </div>
   );
 }
 

@@ -54,9 +54,9 @@ class TracerouteConsumer(AsyncJsonWebsocketConsumer):
         
             ip_pattern = r"\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}"
             ip_addresses = re.findall(ip_pattern, line)
-            if c == 0:
-                c=1
-                continue
+            if c <3:
+                c+=1
+                ip_addresses=[]
             # for ip in ip_addresses:
             if len(ip_addresses) > 0 and self.ip_dict.get(ip_addresses[0]) is None:
                 # Get the location information for this IP

@@ -22,19 +22,33 @@ body {
     line-height: 1.1;  
     color: black;  
     font-weight: 630;
+  }h2 {
+    font-size: 1.2em;
+    color: black;
+    margin-top: 1rem;
   }
   .page {
-    background-color: rgba(255, 255, 255, 0.6);
-    border-radius: 8px;
+    background-color:skyblue;
+    border-radius: 30px;
     display: block;
     width: 50%;
     padding: 20px;
     padding-bottom: 70px;
   }
+  .table {
+    margin-top: 3rem;
+    font-weight: 500;
+    font-size: 18px;
+    table-layout: auto;
+    background-color:rgb(247, 241, 241);
+    color: black;
+  }
   .container {
-    width: 50%;
-    background-color: rgba(255, 255, 255, 0.5);
+    width: 60%;
+    background-color: RGB(102, 183, 220);
     padding: 30px;
+    border-radius: 20px;
+    border-style:groove;
   }
   .run-btn {
     background-color: #646fff;

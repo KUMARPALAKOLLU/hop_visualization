@@ -9,6 +9,9 @@
   
 * Backend - django
   ```sh
+  pip install -r requirements.py
+  ```
+  ```sh
   pipenv install
   ```
   ```sh
